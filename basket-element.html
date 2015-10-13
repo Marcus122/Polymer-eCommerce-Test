@@ -4,7 +4,15 @@
 <dom-module id="basket-element">
 
   <style>
-
+    :host{
+      text-align: center;
+    }
+    .basket-preview{
+       padding:10px;
+       border:1px solid #000;
+       border-radius: 5px;
+       background: #fff;
+    }
   </style>
 
   <template>
@@ -16,7 +24,10 @@
       debounce-duration="300"
       last-response="{{ajaxResponse}}">
     </iron-ajax>
-    <product-element name="[[name]]" img="[[img]]" product="[[product]]" hide="true"/>
+    <div hidden$="{{loading}}" class="basket-preview">
+      <h2>Just added</h2>
+      <product-element id="prod" price="[[ajaxResponse.price]]" name="[[ajaxResponse.name]]" img="[[ajaxResponse.img]]" product="[[ajaxResponse.product]]" hide="true" size="small"/>
+    </div>
   </template>
 
 </dom-module>
@@ -34,7 +45,6 @@
        * while checking its pocket watch.
        */
       product:String,
-      
       /**
        * Describes the author of the element, but is really just an excuse to
        * show off JSDoc annotations.
@@ -68,7 +78,9 @@
     },
 
     attached: function() {
+      //this.loading=true;
       this.url = '/product/' + this.product;
+      this.loading=true;
       // `attached` fires once the element and its parents have been inserted
       // into a document.
       //
@@ -84,8 +96,7 @@
       // Use this to clean up anything you did in `attached`.
     },
     handleResponse: function(e){
-        this.name = this.ajaxResponse.name;
-        this.img = this.ajaxResponse.img;
+        this.loading=false;
     }
 
     // Element Behavior

@@ -51,6 +51,20 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        right:20px;
        top:20px;
      }
+     #basket-list{
+       position:absolute;
+       right:0;
+       display:none;
+     }
+     #basket-list.show{
+       display:block;
+     }
+     #basket-list basket-element{
+       
+     }
+     h2{
+       color:#324563;
+     }
   </style>
 </head>
 <body>
@@ -62,15 +76,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <h1>My store</h1>
     <div id="basket">
         <img src="/basket-icon.png" width="80" height="80"/>
+        <div id="basket-list"/>
     </div>
   </header>
   <main>
     <ul>
       <li>
-        <product-element id="test" product="12345" name="Rubix Cube" img="/product.jpg"/>
+        <product-element price="28" id="test" product="12345" name="Rubix Cube" img="/product.jpg"/>
       </li>
       <li>
-        <product-element hideAdd="true" id="test1" product="123456" name="Rubix Cube1" img="/product.jpg" />
+        <product-element price="23" hideAdd="true" id="test1" product="123456" name="Rubix Cube1" img="/product.jpg" />
       </li>
     </ul>
   </main>
@@ -78,15 +93,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <script>
     (function(){
       "use strict";
-      var test = document.getElementsByTagName("product-element");
-      for(let i=0;i<test.length;i++){
-        test[i].addEventListener("added-to-basket",function(e){
-            var basket = document.getElementById("basket");
+        document.addEventListener("added-to-basket",function(e){
+            var basket = document.getElementById("basket-list");
+            basket.innerHTML="";//quick way of emptying
+            basket.setAttribute("class","show");
             var node = document.createElement("basket-element");
             node.setAttribute("product",e.srcElement.product);
             basket.appendChild(node);
         });
-      }
     })();
   </script>
 </body>

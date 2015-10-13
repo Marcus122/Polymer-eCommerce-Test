@@ -9,11 +9,17 @@ var products = [
 	{
 		id:"12345",
 		name:"Rubix Cube",
-		img:"/product.jpg"
+		img:"/product.jpg",
+		price:28
+	},
+	{
+		id:"123456",
+		name:"Rubix Cube 1",
+		img:"/product.jpg",
+		price:23
 	}
 ]
 app.get("/product/:id",function(req,res){
-	console.log(req.params.id);
 	for( i in products){
 		if(products[i].id === req.params.id){
 			res.setHeader('Content-Type', 'application/json');
