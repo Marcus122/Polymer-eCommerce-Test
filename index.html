@@ -54,10 +54,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      #basket-list{
        position:absolute;
        right:0;
-       display:none;
-     }
-     #basket-list.show{
-       display:block;
      }
      #basket-list basket-element{
        
@@ -96,7 +92,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         document.addEventListener("added-to-basket",function(e){
             var basket = document.getElementById("basket-list");
             basket.innerHTML="";//quick way of emptying
-            basket.setAttribute("class","show");
             var node = document.createElement("basket-element");
             node.setAttribute("product",e.srcElement.product);
             basket.appendChild(node);

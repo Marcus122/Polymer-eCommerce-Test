@@ -13,6 +13,13 @@
        border-radius: 5px;
        background: #fff;
     }
+    #close{
+      position:absolute;
+      right:10px;
+      top:10px;
+      color:#000;
+      cursor:pointer;
+    }
   </style>
 
   <template>
@@ -25,6 +32,7 @@
       last-response="{{ajaxResponse}}">
     </iron-ajax>
     <div hidden$="{{loading}}" class="basket-preview">
+      <span on-click="doClose" id="close">X</span>
       <h2>Just added</h2>
       <product-element id="prod" price="[[ajaxResponse.price]]" name="[[ajaxResponse.name]]" img="[[ajaxResponse.img]]" product="[[ajaxResponse.product]]" hide="true" size="small"/>
     </div>
@@ -97,8 +105,11 @@
     },
     handleResponse: function(e){
         this.loading=false;
+    },
+    doClose: function(){
+      this.remove();
     }
-
+    
     // Element Behavior
 
     /**
