@@ -1,8 +1,3 @@
-# seed-element
-
-An element providing a starting point for your own reusable Polymer elements.
-
-
 ## Dependencies
 
 Element dependencies are managed via [Bower](http://bower.io/). You can
