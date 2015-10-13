@@ -12,7 +12,7 @@ Then, go ahead and download the element's dependencies:
 
 ## Product Element
 
-The product element is the root element that can define a product on a website
+The product element is a template for a product on a website
 
 
 ## Basket Element
