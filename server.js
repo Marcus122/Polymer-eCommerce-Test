@@ -7,16 +7,28 @@ app.use(express.static(__dirname + '/bower_components'));
 
 var products = [
 	{
-		id:"12345",
+		id:"1",
 		name:"Rubix Cube",
 		img:"/product.jpg",
-		price:28
+		price:100
 	},
 	{
-		id:"123456",
-		name:"Rubix Cube 1",
+		id:"2",
+		name:"Rubix Cube 2",
 		img:"/product.jpg",
-		price:23
+		price:25
+	},
+	{
+		id:"3",
+		name:"Rubix Cube 3",
+		img:"/product.jpg",
+		price:45
+	},
+	{
+		id:"4",
+		name:"Rubix Cube 4",
+		img:"/product.jpg",
+		price:34
 	}
 ]
 app.get("/product/:id",function(req,res){

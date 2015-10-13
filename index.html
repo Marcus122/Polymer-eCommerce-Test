@@ -37,14 +37,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        width:100%;
      }
      main{
-       margin:20px;
+       width:90%;
+       margin:20px auto;
      }
      ul{
        list-style:none;
+       padding:0;
+       margin:0;
      }
      li{
        float:left;
-       margin-right:10px;
+       margin-right:2%;
+       width:23%;
      }
      #basket{
        position:absolute;
@@ -55,12 +59,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        position:absolute;
        right:0;
      }
-     #basket-list basket-element{
-       
-     }
      h2{
        color:#324563;
      }
+    @media (max-width: 600px) {
+       li{
+        margin:0 0 20px;
+        width:100%; 
+       }
+    } 
   </style>
 </head>
 <body>
@@ -78,10 +85,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <main>
     <ul>
       <li>
-        <product-element price="28" id="test" product="12345" name="Rubix Cube" img="/product.jpg"/>
+        <product-element price="100" product="1" name="Rubix Cube" img="/product.jpg"/>
       </li>
       <li>
-        <product-element price="23" hideAdd="true" id="test1" product="123456" name="Rubix Cube1" img="/product.jpg" />
+        <product-element price="25" product="2" name="Rubix Cube 2" img="/product.jpg" />
+      </li>
+      <li>
+        <product-element price="45" product="3" name="Rubix Cube 3" img="/product.jpg"/>
+      </li>
+      <li>
+        <product-element price="34" product="4" name="Rubix Cube 4" img="/product.jpg" />
       </li>
     </ul>
   </main>
